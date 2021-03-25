@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Mistareas</title>
+  </head>
+  <body>
+    <div class="container mt-5" id="app">
+        <h3>{{titulo}}</h3>
+        <input type="text" class="form-control my-4" v-model="nuevaTarea" v-on:keyup.enter="agregar">
+        <button class="btn btn-secondary" @Click="agregar">Agregar</button>
+        
+        <div class= "mt-4" v-for="(tarea,index) in tareas">
+            <div class="alert alert-success" role="alert">
+                <div class=" d-flex justify-content-between">
+                    <div>
+                        {{index}} -  tarea: {{tarea.nombre}} -estado: {{tarea.estado}}
+                    </div>
+                    <div>
+                        <button class="btn btn-success" @click="cambiarEstado(index)">OK</button>
+                        <button class="btn btn-danger" @click="eliminarTarea(index)">Borrar</button>
+                        <button class="btn btn-success" @click="editarTarea(index)">Editar</button>
+                
+                    </div>
+                </div>
+              </div>
+        </div>
+
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="tareas.js"></script>
+
+
+    
+    
+  </body>
+</html>
